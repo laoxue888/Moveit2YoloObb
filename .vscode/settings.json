@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/root/sf_moveit2_obb_ws/install/yolov8_msgs/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/root/sf_moveit2_obb_ws/install/yolov8_msgs/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}
