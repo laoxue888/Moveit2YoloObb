@@ -1,0 +1,21 @@
+[06:49:10]: 启动时间：2025-03-20 06:49:10.535117
+[06:50:41]: start: 2025-03-20 06:50:41.599753
+[07:03:54]: start: 2025-03-20 07:03:54.487981
+[07:08:01]: start: 2025-03-20 07:08:01.845432
+[07:08:04]: timer_start
+[07:08:40]: start: 2025-03-20 07:08:40.619631
+[07:09:24]: start: 2025-03-20 07:09:24.315640
+[07:09:26]: create image_subscriber
+[07:09:26]: create yolo_subscriber
+[07:09:28]: create pub_path
+[07:09:29]: timer_start
+[07:09:41]: timer_stop
+[07:09:43]: timer_start
+[07:09:45]: timer_stop
+[07:09:48]: timer_start
+[16:55:11]: start: 2025-03-20 16:55:11.090186
+[16:55:15]: timer_start
+[16:55:17]: timer_stop
+[16:55:20]: create image_subscriber
+[16:55:20]: create yolo_subscriber
+[16:55:22]: create pub_path

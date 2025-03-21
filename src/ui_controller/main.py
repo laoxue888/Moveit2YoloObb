@@ -9,7 +9,9 @@ from PySide6.QtCore import *
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PySide6.Qt import *
-from bolt_selector_window import Ui_Form
+from ui.ui_bolt_selector_window import Ui_Form
+from scripts.messageconsole import MessageConsole
+import datetime
 
 # ROS
 import rclpy
@@ -40,28 +42,37 @@ class GraphicsScene(QGraphicsScene):
 
 class GUI(QDialog):
 
+    messageSignal = Signal(str)
     def __init__(self,parent=None):
         super(GUI, self).__init__(parent)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+
+        self.initGui()
 
         self.scene = GraphicsScene(self.ui.graphicsView)
         self.ui.graphicsView.setScene(self.scene)
         self.ui.graphicsView.setMouseTracking(True)
 
         rclpy.init(args=None)
-        self.camera_subscriber = Node('image_subscriber')
-        self.sub = self.camera_subscriber.create_subscription(Image, '/image_raw', self.camera_callback, 10)
+        # self.camera_subscriber = Node('image_subscriber')
+        # self.sub = self.camera_subscriber.create_subscription(Image, '/image_raw', self.camera_callback, 10)
 
-        self.yolo_subscriber = Node('yolo_subscriber')
-        self.sub = self.yolo_subscriber.create_subscription(Yolov8Inference, '/Yolov8_Inference', self.yolo_callback, 10)
+        # self.yolo_subscriber = Node('yolo_subscriber')
+        # self.sub = self.yolo_subscriber.create_subscription(Yolov8Inference, '/Yolov8_Inference', self.yolo_callback, 10)
 
-        self.pub_node = Node('pub_path')
-        self.pub = self.pub_node.create_publisher(Float64MultiArray, '/target_point', 10)
+        # self.pub_node = Node('pub_path')
+        # self.pub = self.pub_node.create_publisher(Float64MultiArray, '/target_point', 10)
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update)
-        self.timer.start(10)
+
+        self.ui.pushButton_sub.clicked.connect(self.create_sub)
+        # self.timer.start(10)
+        self.ui.pushButton_pub.clicked.connect(self.create_pub)
+
+        self.ui.pushButton_start.clicked.connect(self.timer_start)
+        self.ui.pushButton_stop.clicked.connect(self.timer_stop)
 
         self.brush = QBrush(QColor(255,255,255,255))
         self.target_point = [0,0,0]
@@ -72,6 +83,43 @@ class GUI(QDialog):
         self.z = 0.7
         self.init_x = 0.2 # camera positon - robot arm link 0 initial position
         self.init_y = 0.6
+
+    def initGui(self,):
+        """"""
+        self.messageconsole = MessageConsole()
+        self.messageSignal.connect(self.messageconsole.showMessage)
+        self.ui.verticalLayout_msg.addWidget(self.messageconsole)
+        self.messageSignal.emit("start: {}".format(datetime.datetime.now()))
+
+    def create_sub(self,):
+        """"""
+        self.camera_subscriber = Node('image_subscriber')
+        self.sub = self.camera_subscriber.create_subscription(Image, '/image_raw', self.camera_callback, 10)
+
+        self.messageSignal.emit("create image_subscriber")
+
+        self.yolo_subscriber = Node('yolo_subscriber')
+        self.sub = self.yolo_subscriber.create_subscription(Yolov8Inference, '/Yolov8_Inference', self.yolo_callback, 10)
+
+        self.messageSignal.emit("create yolo_subscriber")
+
+    def create_pub(self,):
+        """"""
+        self.pub_node = Node('pub_path')
+        self.pub = self.pub_node.create_publisher(Float64MultiArray, '/target_point', 10)
+
+        self.messageSignal.emit("create pub_path")
+
+    def timer_start(self,):
+        """"""
+        self.timer.start(10)
+        self.messageSignal.emit("timer_start")
+
+    def timer_stop(self,):
+        """"""
+        self.timer.stop()
+        self.messageSignal.emit("timer_stop")
+
 
     def camera_callback(self, data):
         global img
