@@ -13,7 +13,7 @@ from NodeGraphQt import (
 )
 
 # import example nodes from the "nodes" sub-package
-from graphqt.nodes import basic_nodes, custom_ports_node, group_node, widget_nodes
+from nodes import basic_nodes, custom_ports_node, group_node, widget_nodes
 
 BASE_PATH = Path(__file__).parent.resolve()
 

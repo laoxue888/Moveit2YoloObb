@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'bolt_selector_window.ui'
+## Form generated from reading UI file 'mainwindow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.2
 ##
@@ -37,6 +37,7 @@ class Ui_Form(object):
         self.splitter_3.setOrientation(Qt.Orientation.Horizontal)
         self.frame_2 = QFrame(self.splitter_3)
         self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setMinimumSize(QSize(200, 0))
         self.frame_2.setMaximumSize(QSize(200, 16777215))
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
@@ -54,6 +55,11 @@ class Ui_Form(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.pushButton_sub = QPushButton(self.scrollAreaWidgetContents)
         self.pushButton_sub.setObjectName(u"pushButton_sub")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pushButton_sub.sizePolicy().hasHeightForWidth())
+        self.pushButton_sub.setSizePolicy(sizePolicy1)
 
         self.verticalLayout_7.addWidget(self.pushButton_sub)
 
@@ -89,7 +95,7 @@ class Ui_Form(object):
         self.splitter.setOrientation(Qt.Orientation.Horizontal)
         self.groupBox = QGroupBox(self.splitter)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setMinimumSize(QSize(400, 0))
+        self.groupBox.setMinimumSize(QSize(500, 0))
         self.verticalLayout = QVBoxLayout(self.groupBox)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")

@@ -56,6 +56,8 @@ apt install ros-${ROS_DISTRO}-gz-ros2-control
 
 # 用于调试
 apt-get install gdb
+
+pip install NodeGraphQt --break-system-packages
 ```
 
 # 基本操作
