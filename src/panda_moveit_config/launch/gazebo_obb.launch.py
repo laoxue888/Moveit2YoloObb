@@ -88,15 +88,16 @@ def generate_launch_description():
     # .joint_limits(file_path="config/joint_limits.yaml")
     # .robot_description_kinematics(file_path="config/kinematics.yaml")
 
-    # moveit_py_node = Node(
-    #     name="moveit_py",
-    #     package="panda_moveit_config",
-    #     executable="arm_control_from_UI.py",
-    #     output="both",
-    #     parameters=[moveit_config.to_dict(),
-    #                 {"use_sim_time": True},
-    #                 ],
-    # )
+    # 调试的时候注释掉
+    moveit_py_node = Node(
+        name="moveit_py",
+        package="panda_moveit_config",
+        executable="arm_control_from_UI.py",
+        output="both",
+        parameters=[moveit_config.to_dict(),
+                    {"use_sim_time": True},
+                    ],
+    )
 
     rviz_config_file = os.path.join(
         get_package_share_directory("panda_moveit_config"),
@@ -164,7 +165,7 @@ def generate_launch_description():
             arguments,
             gazebo,
             gz_spawn_entity,
-            # moveit_py_node,
+            moveit_py_node,
             robot_state_publisher,
             bridge,
             rviz_node,

@@ -22,6 +22,9 @@ class BasicNodeA(BaseNode):
         # create node outputs.
         self.add_output('out A')
         self.add_output('out B')
+    def process(self,):
+        """"""
+        print("BasicNodeA")
 
 
 class BasicNodeB(BaseNode):
@@ -40,14 +43,17 @@ class BasicNodeB(BaseNode):
         super(BasicNodeB, self).__init__()
 
         # create node inputs
-        self.add_input('single 1')
-        self.add_input('single 2')
-        self.add_input('multi in', multi_input=True)
+        self.add_input('in')
+        # self.add_input('single 2')
+        # self.add_input('multi in', multi_input=True)
 
         # create node outputs
-        self.add_output('single 1', multi_output=False)
-        self.add_output('single 2', multi_output=False)
-        self.add_output('multi out')
+        self.add_output('out', multi_output=False)
+        # self.add_output('single 2', multi_output=False)
+        # self.add_output('multi out')
+    def process(self,):
+        """"""
+        print("BasicNodeB")
 
 
 class CircleNode(BaseNodeCircle):

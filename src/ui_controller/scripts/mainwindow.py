@@ -12,6 +12,7 @@ from PySide6.Qt import *
 from ui.ui_mainwindow import Ui_Form
 from scripts.messageconsole import MessageConsole
 import datetime
+import subprocess
 
 # ROS
 import rclpy
@@ -21,7 +22,10 @@ from std_msgs.msg import Float64MultiArray
 from yolov8_msgs.msg import Yolov8Inference
 from cv_bridge import CvBridge
 
-from scripts.graph_flow.graph_flow import init_graph
+# sys.path.append("/root/sf_moveit2_obb_ws/src")
+# from yolov8_obb.scripts.yolov8_obb_publisher import Camera_subscriber
+
+from scripts.graph_flow.graph_flow import GraphFlow
 
 bridge = CvBridge()
 
@@ -69,13 +73,10 @@ class GUI(QDialog):
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update)
-
-        self.ui.pushButton_sub.clicked.connect(self.create_sub)
-        # self.timer.start(10)
-        self.ui.pushButton_pub.clicked.connect(self.create_pub)
-
+        
         self.ui.pushButton_start.clicked.connect(self.timer_start)
         self.ui.pushButton_stop.clicked.connect(self.timer_stop)
+        self.ui.pushButton_Test.clicked.connect(self.my_test)
 
         self.brush = QBrush(QColor(255,255,255,255))
         self.target_point = [0,0,0]
@@ -87,6 +88,20 @@ class GUI(QDialog):
         self.init_x = 0.2 # camera positon - robot arm link 0 initial position
         self.init_y = 0.6
 
+    def my_test(self,):
+        """"""
+        print("my_test")
+        # command = "ros2 launch  yolov8_obb  yolov8_obb.launch.py"
+        # result = subprocess.run(command, shell=True, capture_output=True, text=True)
+
+        # # 输出结果
+        # print("Return code:", result.returncode)
+        # print("Output:", result.stdout)
+        # if result.stderr:
+        #     print("Error:", result.stderr)
+        # self.yolov8_obb_publisher = Camera_subscriber()
+
+
     def initGui(self,):
         """"""
         self.messageconsole = MessageConsole()
@@ -97,14 +112,24 @@ class GUI(QDialog):
     
     def initGraph(self,):
         """"""
-        init_graph(self.ui.verticalLayout_flow)
-        
+        self.flow = GraphFlow()
+        self.flow.init_graph(self.ui.verticalLayout_flow)
 
-    def create_sub(self,):
+    def timer_start(self,):
         """"""
+        self.timer.start(10)
+        self.messageSignal.emit("timer_start")
+        self.flow.execute_nodes()
+
+        try:# 先尝试移除节点
+            self.camera_subscriber.destroy_node()
+            self.yolo_subscriber.destroy_node()
+        except:
+            pass
+
         self.camera_subscriber = Node('image_subscriber')
         self.sub = self.camera_subscriber.create_subscription(Image, '/image_raw', self.camera_callback, 10)
-
+        
         self.messageSignal.emit("create image_subscriber")
 
         self.yolo_subscriber = Node('yolo_subscriber')
@@ -112,17 +137,14 @@ class GUI(QDialog):
 
         self.messageSignal.emit("create yolo_subscriber")
 
-    def create_pub(self,):
-        """"""
+        try:
+            self.pub_node.destroy_node()
+        except:
+            pass
         self.pub_node = Node('pub_path')
         self.pub = self.pub_node.create_publisher(Float64MultiArray, '/target_point', 10)
 
         self.messageSignal.emit("create pub_path")
-
-    def timer_start(self,):
-        """"""
-        self.timer.start(10)
-        self.messageSignal.emit("timer_start")
 
     def timer_stop(self,):
         """"""
@@ -187,3 +209,4 @@ class GUI(QDialog):
     def update(self):
         rclpy.spin_once(self.camera_subscriber)
         rclpy.spin_once(self.yolo_subscriber)
+        # rclpy.spin_once(self.yolov8_obb_publisher)

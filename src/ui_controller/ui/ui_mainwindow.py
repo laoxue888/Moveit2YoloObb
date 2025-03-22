@@ -53,21 +53,6 @@ class Ui_Form(object):
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 196, 791))
         self.verticalLayout_7 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.pushButton_sub = QPushButton(self.scrollAreaWidgetContents)
-        self.pushButton_sub.setObjectName(u"pushButton_sub")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.pushButton_sub.sizePolicy().hasHeightForWidth())
-        self.pushButton_sub.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_7.addWidget(self.pushButton_sub)
-
-        self.pushButton_pub = QPushButton(self.scrollAreaWidgetContents)
-        self.pushButton_pub.setObjectName(u"pushButton_pub")
-
-        self.verticalLayout_7.addWidget(self.pushButton_pub)
-
         self.pushButton_start = QPushButton(self.scrollAreaWidgetContents)
         self.pushButton_start.setObjectName(u"pushButton_start")
 
@@ -77,6 +62,11 @@ class Ui_Form(object):
         self.pushButton_stop.setObjectName(u"pushButton_stop")
 
         self.verticalLayout_7.addWidget(self.pushButton_stop)
+
+        self.pushButton_Test = QPushButton(self.scrollAreaWidgetContents)
+        self.pushButton_Test.setObjectName(u"pushButton_Test")
+
+        self.verticalLayout_7.addWidget(self.pushButton_Test)
 
         self.verticalSpacer = QSpacerItem(20, 714, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -148,10 +138,9 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"controller", None))
-        self.pushButton_sub.setText(QCoreApplication.translate("Form", u"create_subscription", None))
-        self.pushButton_pub.setText(QCoreApplication.translate("Form", u"create_publisher", None))
         self.pushButton_start.setText(QCoreApplication.translate("Form", u"Start", None))
         self.pushButton_stop.setText(QCoreApplication.translate("Form", u"Stop", None))
+        self.pushButton_Test.setText(QCoreApplication.translate("Form", u"Test", None))
         self.groupBox.setTitle(QCoreApplication.translate("Form", u"Camera", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"Program Flow", None))
     # retranslateUi

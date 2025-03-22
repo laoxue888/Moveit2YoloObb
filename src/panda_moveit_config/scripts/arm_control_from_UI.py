@@ -60,8 +60,6 @@ class Controller(Node):
             10)
         self.subscription
 
-        self.declare_parameters
-
         self.pose_goal = PoseStamped()
         self.pose_goal.header.frame_id = "panda_link0"
         # instantiate MoveItPy instance and get planning component
@@ -97,7 +95,7 @@ class Controller(Node):
         self.panda_hand.set_start_state_to_current_state()
 
         if action == 'open':
-            joint_values = {"panda_finger_joint1": 0.015}
+            joint_values = {"panda_finger_joint1": 0.03}
         elif action == 'close':
             joint_values = {"panda_finger_joint1": 0.001}
         else:
