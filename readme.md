@@ -11,7 +11,7 @@ YOLO机械臂仿真是一种结合了YOLO（You Only Look Once）目标检测算
 
 YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，能够适应动态环境中的多目标场景。同时，仿真平台提供了高度可控的实验环境，便于开发者调试算法、优化性能，并快速验证机械臂的工作效果。
 
-![](src/_docs/images/d7802cf1-4a28-40c1-a918-37d22d51f752.gif)
+![](https://github.com/laoxue888/moveit2_yolobb_ws/blob/main/src/_docs/images/d7802cf1-4a28-40c1-a918-37d22d51f752.gif)
 
 > 参考：
 > - [Pick and Place Simulation Using MoveIt and Yolov8 OBB](https://www.youtube.com/watch?v=ypr3RtJzgKI)
