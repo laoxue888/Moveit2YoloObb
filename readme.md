@@ -1,7 +1,7 @@
 
 ---
 
-# 前言
+# 前言(Introduction)
 
 YOLO机械臂仿真是一种结合了YOLO（You Only Look Once）目标检测算法与机械臂控制的智能化仿真系统。该系统通过YOLO实时检测环境中的目标物体，并结合机械臂的运动规划与仿真，实现自动化的抓取、分拣、装配等任务。该应用广泛应用于工业自动化、智能仓储、机器人教育等领域，为机械臂的智能化操作提供了高效、精准的解决方案。
 
@@ -17,17 +17,17 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 
 [【代码】基于ros2与moveit2开发的yolo识别抓取虚拟机械臂](https://www.bilibili.com/video/BV1KqXWYHE6k/?vd_source=3bf4271e80f39cfee030114782480463)
 
-# 环境配置
+# 环境配置(Environment configuration)
 
 > - Ubuntu:24.04
 > - ros2:jazzy
 
-❇️創建容器
+❇️创建Docker容器(Create a docker container)
 ```shell
 docker run -it -p 6796:22 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=host.docker.internal:0.0 --gpus=all --name=ros2_learn6 docker.1ms.run/ubuntu:24.04  /bin/bash
 ```
 
-❇️進入容器，配置开发环境
+❇️进入Docker容器，配置开发环境(Enter the Docker container and configure the development environment)
 ```shell
 # 按照鱼香ros一键安装ros2
 apt-get update
@@ -80,14 +80,7 @@ pip install pyside6 xacro ultralytics NodeGraphQt --break-system-packages
 pip install -U colcon-common-extensions vcstool --break-system-packages
 ```
 
-# 基本操作
-
-```shell
-# 创建文件夹
-ros2 pkg create pkg_demo --node-name helloworld_node --build-type ament_python --dependencies rclpy std_msgs
-```
-
-# 运行测试
+# 运行测试(Run test)
 
 ```shell
 # Shell A
@@ -106,6 +99,13 @@ ros2 launch yolov8_obb yolov8_obb.launch.py
 source install/setup.bash
 cd src/ui_controller/
 python3 main.py
+```
+
+# ros2基本操作
+
+```shell
+# 创建文件夹
+ros2 pkg create pkg_demo --node-name helloworld_node --build-type ament_python --dependencies rclpy std_msgs
 ```
 
 # moveit测试
