@@ -16,17 +16,22 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 
 # 环境配置
 
+> Ubuntu:24.04
+> ros2:jazzy
+
+❇️創建容器
 ```shell
 docker run -it -p 6796:22 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=host.docker.internal:0.0 --gpus=all --name=ros2_learn6 docker.1ms.run/ubuntu:24.04  /bin/bash
 ```
 
+❇️進入容器，配置开发环境
 ```shell
+# 按照鱼香ros一键安装ros2
 apt-get update
 apt install wget -y
-
 wget http://fishros.com/install -O fishros && bash fishros
 
-# 安装gz
+# 打开新的终端，安装gz
 sudo apt-get update
 sudo apt-get install curl lsb-release gnupg -y
 sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
@@ -34,10 +39,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-
 sudo apt-get update -y
 sudo apt-get install gz-harmonic -y
 
+# 安装远程显示服务程序
 apt-get install x11-xserver-utils
 apt install libxcb* -y
 
-# New terminal
+# 安装moveit
 apt install ros-${ROS_DISTRO}-moveit* -y
 
 # sudo apt-get update 
@@ -47,28 +53,28 @@ apt install ros-${ROS_DISTRO}-moveit* -y
 # export GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ros/${ROS_DISTRO}/lib/
 # # sudo apt install ros-${ROS_DISTRO}-gazebo-ros-pkgs ros-${ROS_DISTRO}-gazebo-ros2-control -y
 
+# 安装ros2的控制功能包
 sudo apt install ros-${ROS_DISTRO}-controller-manager -y
 sudo apt install ros-${ROS_DISTRO}-joint-trajectory-controller -y
 sudo apt install ros-${ROS_DISTRO}-joint-state-broadcaster -y
 sudo apt install ros-${ROS_DISTRO}-diff-drive-controller -y
 
+# 安装其他功能包
 apt install ros-${ROS_DISTRO}-ros-gz -y
 apt-get install ros-${ROS_DISTRO}-joint-state-publisher-gui -y
 apt install ros-${ROS_DISTRO}-moveit-ros-planning-interface -y
 # apt install ros-jazzy-gz-ros2-control 这个很重要 https://github.com/ros-controls/gz_ros2_control
 apt install ros-${ROS_DISTRO}-gz-ros2-control -y
 
-# 用于调试
+# 用于调试，可不安装
 apt-get install gdb -y
 
-# python
+# 安装python第三方库
 apt install python3-pip -y
-
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 # pip install pyside6 xacro ultralytics --break-system-packages
 pip install pyside6 xacro ultralytics NodeGraphQt --break-system-packages
 pip install -U colcon-common-extensions vcstool --break-system-packages
-
 ```
 
 # 基本操作
@@ -85,7 +91,7 @@ ros2 pkg create pkg_demo --node-name helloworld_node --build-type ament_python -
 source install/setup.bash
 ros2 launch panda_moveit_config gazebo_obb.launch.py
 
-# Shell B 调试用
+# Shell B 调试用，在vscode中要安装ROS（Microsoft）、Python等模块
 # source install/setup.bash
 # ros2 launch panda_moveit_config arm_control.launch.py
 
@@ -155,4 +161,4 @@ default: true
 
 🤔：范围超了，导致`CheckStartStateBounds`不通过
 
-✔️：
+✔️：调试一下初始位置
