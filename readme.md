@@ -13,11 +13,12 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 
 > 参考：
 > - [Pick and Place Simulation Using MoveIt and Yolov8 OBB](https://www.youtube.com/watch?v=ypr3RtJzgKI)
+> - [https://drive.google.com/drive/folders/1eDVATIX1mHBtSkI7ueQE2568mkxgno0f](https://drive.google.com/drive/folders/1eDVATIX1mHBtSkI7ueQE2568mkxgno0f)
 
 # 环境配置
 
-> Ubuntu:24.04
-> ros2:jazzy
+> - Ubuntu:24.04
+> - ros2:jazzy
 
 ❇️創建容器
 ```shell
