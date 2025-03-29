@@ -87,7 +87,7 @@ pip install -U colcon-common-extensions vcstool --break-system-packages
 source install/setup.bash
 ros2 launch panda_moveit_config gazebo_obb.launch.py
 
-# Shell B 调试用，在vscode中要安装ROS（Microsoft）、Python等模块
+# Shell B 调试用，在vscode中要安装ROS（Microsoft）、Python等模块，还要在Python文件中选择Python编译器
 # source install/setup.bash
 # ros2 launch panda_moveit_config arm_control.launch.py
 
