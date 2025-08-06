@@ -19,6 +19,13 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 
 [配置开发环境](docs/1、配置开发环境/1、配置开发环境.md)
 
+## 编译调试
+
+```shell
+cd ros2_project
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
+```
+
 ## 运行测试
 
 ```shell
@@ -36,11 +43,6 @@ cd src/ui_controller/
 python3 main.py
 ```
 
-## 编译调试
-
-```shell
-colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
-```
 
 ## 参考
 
