@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "catkin_make", //代表提示的描述性信息
+            "type": "shell", //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行
+            // "command": "catkin_make",//这个是我们需要运行的命令
+            "command": "colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug", //这个是我们需要运行的命令
+            // "command": "catkin_make -DCMAKE_TYPE=Release",//这个是我们需要运行的命令
+            "args": [], //如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always" //可选always或者silence，代表是否输出信息
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

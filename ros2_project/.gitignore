@@ -1,0 +1,6 @@
+
+/build
+/install
+/log
+*.pyc
+/src/ui_controller/logs
