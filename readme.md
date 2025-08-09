@@ -34,20 +34,7 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 ## 运行测试
 
-```shell
-# Shell A
-source install/setup.bash
-ros2 launch panda_moveit_config gazebo_obb.launch.py
-
-# Shell B
-source install/setup.bash
-ros2 launch yolov8_obb yolov8_obb.launch.py
-
-# Shell C
-source install/setup.bash
-cd src/ui_controller/
-python3 main.py
-```
+[测试项目](docs/userguide/2.run_test/2.run_test.md)
 
 
 ## 参考
