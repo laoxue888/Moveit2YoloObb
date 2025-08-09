@@ -1,4 +1,0 @@
-pyside6
-xacro
-colcon-common-extensions
-# vcstool

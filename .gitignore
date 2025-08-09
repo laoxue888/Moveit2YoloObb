@@ -1,0 +1,5 @@
+# 只忽略当前的downloads文件夹
+/downloads
+# 忽略所有的__pycache__文件夹及其子文件夹
+__pycache__/ 
+**/*.pyc

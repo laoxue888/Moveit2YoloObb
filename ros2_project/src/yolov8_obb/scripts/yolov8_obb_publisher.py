@@ -18,7 +18,7 @@ class Camera_subscriber(Node):
     def __init__(self):
         super().__init__('camera_subscriber')
 
-        self.model = YOLO(os.environ['HOME'] + '/moveit2_yolobb_ws/src/yolov8_obb/scripts/best.pt')
+        self.model = YOLO('/workspaces/ros2_project/src/yolov8_obb/scripts/best.pt')
 
         self.yolov8_inference = Yolov8Inference()
 
