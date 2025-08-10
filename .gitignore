@@ -3,3 +3,4 @@
 # 忽略所有的__pycache__文件夹及其子文件夹
 __pycache__/ 
 **/*.pyc
+/test

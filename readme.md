@@ -13,7 +13,8 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 
 **更新：**
 
-[2025-3-22：【代码】基于ros2与moveit2开发的yolo识别抓取虚拟机械臂](https://www.bilibili.com/video/BV1KqXWYHE6k/?vd_source=3bf4271e80f39cfee030114782480463)
+- 2025-8-9：更新代码，使用GraphExeter显示控制。
+- [2025-3-22：【代码】基于ros2与moveit2开发的yolo识别抓取虚拟机械臂](https://www.bilibili.com/video/BV1KqXWYHE6k/?vd_source=3bf4271e80f39cfee030114782480463)
 
 ## 克隆项目
 
@@ -23,14 +24,9 @@ git clone --recurse-submodules https://github.com/laoxue888/moveit2_yolobb_ws.gi
 
 ## 环境配置
 
-[配置开发环境](docs/userguide/1.installation/1.installation.md)
+[配置开发环境](docs/userguide/1.installation/1.installation2.md)
 
-## 编译调试
 
-```shell
-cd ros2_project
-colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
-```
 
 ## 运行测试
 
@@ -39,5 +35,6 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 ## 参考
 
-> - [Pick and Place Simulation Using MoveIt and Yolov8 OBB](https://www.youtube.com/watch?v=ypr3RtJzgKI)
-> - [https://drive.google.com/drive/folders/1eDVATIX1mHBtSkI7ueQE2568mkxgno0f](https://drive.google.com/drive/folders/1eDVATIX1mHBtSkI7ueQE2568mkxgno0f)
+- [Pick and Place Simulation Using MoveIt and Yolov8 OBB](https://www.youtube.com/watch?v=ypr3RtJzgKI)
+- [https://drive.google.com/drive/folders/1eDVATIX1mHBtSkI7ueQE2568mkxgno0f](https://drive.google.com/drive/folders/1eDVATIX1mHBtSkI7ueQE2568mkxgno0f)
+- [https://gazebosim.org/docs/harmonic/getstarted/](https://gazebosim.org/docs/harmonic/getstarted/)

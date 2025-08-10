@@ -27,10 +27,10 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				// "espressif.esp-idf-extension",
 				"ms-vscode.cmake-tools",
 				"ms-vscode.cpptools",
-				"ms-vscode.cpptools-themes"
+				"ms-vscode.cpptools-themes",
+				"morningfrog.urdf-visualizer"
 			]
 		}
 	},
