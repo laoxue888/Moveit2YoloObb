@@ -30,7 +30,10 @@
 				"ms-vscode.cmake-tools",
 				"ms-vscode.cpptools",
 				"ms-vscode.cpptools-themes",
-				"morningfrog.urdf-visualizer"
+				"morningfrog.urdf-visualizer",
+				"xelad0m.jupyter-toc",
+				"mikeburgh.xml-format",
+				"esbenp.prettier-vscode"
 			]
 		}
 	},
@@ -40,8 +43,9 @@
 		// "--privileged",
 		"--gpus=all",
 		"--pid=host",
-		"-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+		// "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
 		"-p", "6080:80",
+		"-p", "15901:5901",
 		"-p", "10000:10000",
 		"-e", "DISPLAY=host.docker.internal:0.0",
 		"-e", "PULSE_SERVER=host.docker.internal"

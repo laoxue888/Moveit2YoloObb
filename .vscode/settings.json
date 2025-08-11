@@ -1,4 +1,6 @@
 {
-    "idf.pythonInstallPath": "/usr/bin/python3"
+    "idf.pythonInstallPath": "/usr/bin/python3",
+    "editor.formatOnPaste": true,
+    "cmake.sourceDirectory": "E:/Projects/2_Developing/Moveit2YOLOObb/moveit2_yolobb_ws/ros2_project/src/panda_moveit_config"
     
 }
