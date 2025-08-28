@@ -1,7 +1,7 @@
 
 # moveit2_yolobb_ws
 
-![](./images/test.gif)
+![](./images/test1.gif)
 
 ## 关于项目
 
