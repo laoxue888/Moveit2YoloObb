@@ -24,7 +24,7 @@ git clone --recurse-submodules https://github.com/laoxue888/moveit2_yolobb_ws.gi
 
 ## 环境配置
 
-[配置开发环境](docs/userguide/1.installation/1.installation2.md)
+[配置开发环境](docs/userguide/1.installation/5.installation.md)
 
 
 

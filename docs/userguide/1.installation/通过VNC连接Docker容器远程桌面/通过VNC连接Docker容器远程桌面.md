@@ -10,7 +10,7 @@
 
 ```shell
 # 进入Docker容器
-unminimize
+unminimize -y
 
 echo $LANG
 
@@ -21,14 +21,17 @@ apt install language-pack-zh-hans vim -y
 
 vim /etc/profile
 
+############################################
 LANG="zh_CN.UTF-8"
 LANGUAGE="zh_CN:zh:en_US:en"
-
+############################################
 
 vim ~/.bashrc
 
+############################################
 LANG="zh_CN.UTF-8"
 LANGUAGE="zh_CN:zh:en_US:en"
+############################################
 
 
 sudo locale-gen
@@ -53,6 +56,7 @@ vncpasswd
 
 vim ~/.vnc/xstartup
 
+############################################
 #!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -62,11 +66,15 @@ export XMODIFIERS=@im=fcitx
 export LANG=zh_CN.UTF-8
 fcitx -r
 startxfce4
+############################################
 
 chmod u+x ~/.vnc/xstartup
 
 # 启动vncserver
 vncserver :1 -localhost no -geometry=1920x1080
+
+# echo "vncserver :1 -localhost no -geometry=1920x1080" > ~/.bashrc
+# source ~/.bashrc
 ```
 
 ❤️效果

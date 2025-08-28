@@ -282,9 +282,9 @@
     </joint>
     
     <!-- https://github.com/ros-controls/gazebo_ros2_control/issues/173#issuecomment-1536332488 -->
-    <joint name="panda_finger_joint2_mimic" type="fixed">
+    <!-- <joint name="panda_finger_joint2_mimic" type="fixed">
         <parent link="panda_hand" />
         <child link="random" />
     </joint>
-    <link name="random"/>
+    <link name="random"/> -->
 </robot>

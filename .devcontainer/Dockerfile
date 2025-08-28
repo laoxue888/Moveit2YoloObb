@@ -12,6 +12,8 @@ RUN apt-get update \
 	  python3-pip \
 	  wget \
 	  x11-apps \
-	  sudo
+	  sudo \
+	  python3-venv \
+	  vim
 
 CMD ["/bin/bash"]

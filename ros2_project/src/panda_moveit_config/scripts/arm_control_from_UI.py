@@ -10,10 +10,7 @@ from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import Float64MultiArray
 # moveit python library
 from moveit.core.robot_state import RobotState
-from moveit.planning import (
-    MoveItPy,
-    MultiPipelinePlanRequestParameters,
-)
+from moveit.planning import MoveItPy, MultiPipelinePlanRequestParameters 
 from moveit.core.kinematic_constraints import construct_joint_constraint
 
 
@@ -64,8 +61,11 @@ class Controller(Node):
         self.pose_goal.header.frame_id = "panda_link0"
         # instantiate MoveItPy instance and get planning component
         self.panda = MoveItPy(node_name="moveit_py")
-        self.panda_arm = self.panda.get_planning_component("panda_arm")
-        self.panda_hand = self.panda.get_planning_component("hand")
+        self.arm_planning_component_name = "panda_arm"
+        self.hand_planning_component_name = "panda_hand"
+
+        self.panda_arm = self.panda.get_planning_component(self.arm_planning_component_name)
+        self.panda_hand = self.panda.get_planning_component(self.hand_planning_component_name)
         self.logger = get_logger("moveit_py.pose_goal")
 
         robot_model = self.panda.get_robot_model()
@@ -95,16 +95,16 @@ class Controller(Node):
         self.panda_hand.set_start_state_to_current_state()
 
         if action == 'open':
-            joint_values = {"panda_finger_joint1": 0.03}
+            joint_values = {"panda_finger_joint1": 0.04}
         elif action == 'close':
-            joint_values = {"panda_finger_joint1": 0.001}
+            joint_values = {"panda_finger_joint1": 0.005}
         else:
             self.get_logger().info("no such action")
 
         self.robot_state.joint_positions = joint_values
         joint_constraint = construct_joint_constraint(
             robot_state = self.robot_state,
-            joint_model_group = self.panda.get_robot_model().get_joint_model_group("hand"),
+            joint_model_group = self.panda.get_robot_model().get_joint_model_group(self.hand_planning_component_name),
         )        
         self.panda_hand.set_goal_state(motion_plan_constraints=[joint_constraint])
         plan_and_execute(self.panda, self.panda_hand, self.logger, sleep_time=3.0)
