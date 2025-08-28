@@ -13,6 +13,7 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 
 **更新：**
 
+- 2025-8-28：添加容器开发方式并优化代码。
 - 2025-8-9：更新代码，使用GraphExeter显示控制。
 - [2025-3-22：【代码】基于ros2与moveit2开发的yolo识别抓取虚拟机械臂](https://www.bilibili.com/video/BV1KqXWYHE6k/?vd_source=3bf4271e80f39cfee030114782480463)
 
