@@ -1,5 +1,5 @@
 
-# moveit2_yolobb_ws
+# Moveit2YoloObb
 
 ![](./images/test1.gif)
 
