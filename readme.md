@@ -20,7 +20,7 @@ YOLO机械臂仿真的优势在于其高效的目标检测能力和实时性，�
 ## 克隆项目
 
 ```shell
-git clone --recurse-submodules https://github.com/laoxue888/moveit2_yolobb_ws.git
+git clone --recurse-submodules https://github.com/laoxue888/Moveit2YoloObb.git
 ```
 
 ## 环境配置
