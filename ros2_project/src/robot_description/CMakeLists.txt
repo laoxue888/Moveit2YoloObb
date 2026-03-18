@@ -3,7 +3,7 @@ project(robot_description)
 
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
-find_package(urdf REQUIRED)
+#find_package(urdf REQUIRED)
 
 install(
   DIRECTORY
