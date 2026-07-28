@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Streamlit App",
+      "type": "python",
+      "request": "launch",
+      "module": "streamlit",
+      "cwd": "${workspaceFolder}/docs/learn_ASR",
+      "args": ["run", "/workspaces/docs/learn_ASR/app.py"],
+      "console": "integratedTerminal"
+    }
+  ]
+}

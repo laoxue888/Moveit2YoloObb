@@ -40,7 +40,7 @@
 	"userEnvProbe": "loginInteractiveShell",
 	// /* 使用特权的方式启动容器，否则在镜像中将无法访问usbip绑定的USB设备 */
 	"runArgs": [
-		// "--privileged",
+		"--privileged",
 		"--gpus=all",
 		"--pid=host",
 		// "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
@@ -48,6 +48,8 @@
 		"-p", "15901:5901",
 		"-p", "10000:10000",
 		"-e", "DISPLAY=host.docker.internal:0.0",
-		"-e", "PULSE_SERVER=host.docker.internal"
+		"-e", "PULSE_SERVER=host.docker.internal",
+		"-e", "CUDA_VISIBLE_DEVICES=0" //设置让0号GPU可见
+		// "-e", "CUDA_VISIBLE_DEVICES=0, 1" //设置让0,1号GPU可见
 	]
 }
